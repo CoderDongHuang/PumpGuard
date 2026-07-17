@@ -42,5 +42,6 @@
 
 ## 外部链接
 
-- GitHub（含 Notebook）：<https://github.com/dullibri/pump_sensor>
-- Kaggle 原始数据：搜索 "pump_sensor_data" on Kaggle
+- GitHub 完整 Notebook 与分析：<https://github.com/dullibri/pump_sensor>
+- Kaggle 原始数据：搜索 "pump_sensor_data" 即可找到
+- IBM Maximo APM 同款数据 Hands-On Lab：<https://ibm.github.io/maximo-labs-archive/apm_8.7/get_started/>

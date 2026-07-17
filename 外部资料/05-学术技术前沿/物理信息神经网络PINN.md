@@ -64,5 +64,6 @@
 
 ## 外部链接
 
-- Kumar et al. 综述 (MDPI Energies)：<https://www.mdpi.com/1996-1073/17/22/5538>
-- Wang et al. 综述 (SSRN)：<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6691187>
+- Kumar et al. RUL 综述全文 (MDPI Energies, 2024)：<https://www.mdpi.com/1996-1073/17/22/5538>
+- Wang et al. 物理信息 ML 综述 (SSRN)：<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6691187>
+- 注意力隐藏 PINN + 双路径混合器 RUL 预测 (IEEE, 2024)：<https://ieeexplore.ieee.org/document/11213090>

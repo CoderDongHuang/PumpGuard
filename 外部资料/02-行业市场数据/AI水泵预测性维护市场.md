@@ -44,4 +44,5 @@
 
 ## 外部链接
 
-- MarketIntelo 报告：<https://marketintelo.com/report/ai-based-pump-predictive-maintenance-market>
+- MarketIntelo 报告原文：<https://marketintelo.com/report/ai-based-pump-predictive-maintenance-market>
+- 水泵优化 AI 市场报告：<https://marketintelo.com/report/pump-optimization-ai-market>

@@ -27,7 +27,9 @@
 
 ## 外部链接
 
-- NASA PCoE 数据仓库：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
-- PHM Society 数据集镜像：<https://phm-datasets.s3.amazonaws.com/>
+- NASA PCoE 数据仓库（官方）：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
+- PHM Society 数据集 AWS 镜像（可直接下载）：<https://phm-datasets.s3.amazonaws.com/>
 - Kaggle 数据集搜索：<https://www.kaggle.com/datasets>
-- awesome-industrial-datasets (GitHub)：<https://github.com/jonathanwvd/awesome-industrial-datasets>
+- 工业数据集精选列表（GitHub）：<https://github.com/jonathanwvd/awesome-industrial-datasets>
+- PHM 数据集大全（GitHub）：<https://github.com/alovberg/PHM-Datasets>
+- 预测性维护与振动分析资源（GitHub）：<https://github.com/Charlie5DH/PredictiveMaintenance-and-Vibration-Resources>

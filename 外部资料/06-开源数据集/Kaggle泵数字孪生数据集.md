@@ -36,5 +36,6 @@
 
 ## 外部链接
 
-- Kaggle 数据集：<https://www.kaggle.com/datasets/ishanpradhan95/industrial-pump-physics-grounded-digital-twin>
-- PumpAnalysis Notebook：<https://www.kaggle.com/code/hanaaelkhateeb/pumpanalysis>
+- Kaggle 数据集主页：<https://www.kaggle.com/datasets/ishanpradhan95/industrial-pump-physics-grounded-digital-twin>
+- 参考 Notebook（PumpAnalysis RUL 预测）：<https://www.kaggle.com/code/hanaaelkhateeb/pumpanalysis>
+- 150 台泵仿真引擎可直接下载使用

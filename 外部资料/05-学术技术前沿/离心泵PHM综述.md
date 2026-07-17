@@ -52,4 +52,5 @@
 
 ## 外部链接
 
-- MDPI Actuators 论文：<https://doi.org/10.3390/act13120514>
+- MDPI Actuators 论文全文：<https://www.mdpi.com/2076-0825/13/12/514>
+- DOI 直达：<https://doi.org/10.3390/act13120514>

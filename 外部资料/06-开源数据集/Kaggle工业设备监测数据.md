@@ -26,4 +26,5 @@
 
 ## 外部链接
 
-- Kaggle 数据集：<https://www.kaggle.com/datasets/dnkumars/industrial-equipment-monitoring-dataset>
+- Kaggle 数据集主页：<https://www.kaggle.com/datasets/dnkumars/industrial-equipment-monitoring-dataset>
+- 含泵、压缩机、涡轮机三类设备，可直接下载使用

@@ -54,6 +54,8 @@
 
 ## 外部链接
 
-- PumpSpectra 论文 (MDPI Sensors)：<https://www.mdpi.com/1424-8220/25/22/6916>
-- MCSA + AutoML 论文 (J. Mining Institute)：<https://pmi.spmi.ru/pmi/article/view/16723>
-- MBVI 论文 (ScienceDirect)：<https://www.sciencedirect.com/science/article/pii/S0888327024006794>
+- PumpSpectra 论文 (MDPI Sensors, 2025)：<https://www.mdpi.com/1424-8220/25/22/6916>
+- PumpSpectra DOI：<https://doi.org/10.3390/s25226916>
+- MCSA + AutoML 论文 (J. Mining Institute, 2025)：<https://pmi.spmi.ru/pmi/article/view/16723>
+- MBVI 论文 (MSSP, 2025)：<https://www.sciencedirect.com/science/article/pii/S0888327024006794>
+- MCSA 窗口尺寸影响研究 (Springer, 2025)：<https://link.springer.com/article/10.1007/s00170-025-17013-5>

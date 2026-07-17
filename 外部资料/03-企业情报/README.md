@@ -19,5 +19,6 @@
 
 ## 外部链接
 
-- 巨潮资讯网（利欧公告）：<https://www.cninfo.com.cn/>
+- 巨潮资讯网（搜索利欧公告）：<https://www.cninfo.com.cn/>
 - 利欧股份官网：<https://www.leogroup.cn/>
+- 利欧股份 2025 年年报全文：<https://www.cnfin.com/announ/detail/index.html?id=830721944151&code=002131>

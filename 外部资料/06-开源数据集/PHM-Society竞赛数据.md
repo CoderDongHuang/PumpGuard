@@ -34,6 +34,7 @@
 ## 外部链接
 
 - PHM Society 官网：<https://phmsociety.org/>
-- PHM 数据集镜像：<https://phm-datasets.s3.amazonaws.com/>
-- PHM Society 竞赛页面：<https://phmsociety.org/data-challenge/>
-- 工业数据集汇总 (GitHub)：<https://github.com/alovberg/PHM-Datasets>
+- PHM Society 历届竞赛页面：<https://phmsociety.org/data-challenge/>
+- PHM 数据集 AWS 镜像（可直接下载）：<https://phm-datasets.s3.amazonaws.com/>
+- 工业 PHM 数据集汇总（alovberg/PHM-Datasets）：<https://github.com/alovberg/PHM-Datasets>
+- 预测性维护资源汇总（含振动分析等）：<https://github.com/Charlie5DH/PredictiveMaintenance-and-Vibration-Resources>

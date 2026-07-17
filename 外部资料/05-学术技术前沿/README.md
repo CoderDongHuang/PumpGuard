@@ -25,3 +25,6 @@
 - 中国知网：<https://www.cnki.net/>
 - arXiv：<https://arxiv.org/>
 - IEEE Xplore：<https://ieeexplore.ieee.org/>
+- MDPI Sensors（PumpSpectra 等论文）：<https://www.mdpi.com/1424-8220/25/22/6916>
+- MDPI Energies（RUL 综述）：<https://www.mdpi.com/1996-1073/17/22/5538>
+- SSRN（物理信息 ML 综述）：<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6691187>

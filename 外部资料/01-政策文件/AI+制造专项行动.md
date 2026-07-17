@@ -34,5 +34,6 @@
 
 ## 外部链接
 
-- 工信部政策发布：<https://www.miit.gov.cn/>
-- 国务院政策文件库：<https://www.gov.cn/zhengce/>
+- 政策原文（湖南省工信厅转发）：<https://gxt.hunan.gov.cn/gxt/xxgk_71033/zcfg/gjjfg/202601/t20260108_33888883.html>
+- 政策原文（商务部转发）：<https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=104556>
+- 政策解读（清华大学）：<https://www.iii.tsinghua.edu.cn/info/1242/5097.htm>

@@ -34,10 +34,9 @@
 | 平台 | 链接 |
 |------|------|
 | **NASA PCoE 官方** | <https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/> |
-| **PHM Society 镜像** | <https://phm-datasets.s3.amazonaws.com/NASA/4.+Bearings.zip> |
+| **PHM Society 镜像（直接下载）** | <https://phm-datasets.s3.amazonaws.com/NASA/4.+Bearings.zip> |
 | **Kaggle（原始数据）** | <https://www.kaggle.com/datasets/vinayak123tyagi/bearing-dataset> |
-| **Kaggle（特征工程版）** | <https://www.kaggle.com/datasets/jawadulkarim117/nasa-bearing-dataset> |
-| **Zenodo（修正版）** | 修复了原版文件夹命名错误 |
+| **Kaggle（特征工程版，含 80 维特征）** | <https://www.kaggle.com/datasets/jawadulkarim117/nasa-bearing-dataset> |
 
 ## 本方案用途
 
@@ -48,5 +47,5 @@
 
 ## 外部链接
 
-- NASA PCoE 主页：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
-- awesome-industrial-datasets（含详细说明）：<https://github.com/jonathanwvd/awesome-industrial-datasets/blob/master/markdown/nasa_bearing_dataset.md>
+- NASA PCoE 数据仓库主页：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
+- 数据集详细说明（awesome-industrial-datasets）：<https://github.com/jonathanwvd/awesome-industrial-datasets/blob/master/markdown/nasa_bearing_dataset.md>

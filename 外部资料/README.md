@@ -42,13 +42,16 @@
 
 | 资源 | 链接 |
 |------|------|
-| 工信部政策检索 | [https://www.miit.gov.cn/](https://www.miit.gov.cn/) |
-| 国务院政策文件库 | [https://www.gov.cn/zhengce/](https://www.gov.cn/zhengce/) |
-| 中国通用机械工业协会 | [https://www.cgmia.org.cn/](https://www.cgmia.org.cn/) |
-| 巨潮资讯网（利欧公告） | [https://www.cninfo.com.cn/](https://www.cninfo.com.cn/) |
-| NASA PCoE 数据仓库 | [https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/) |
-| PHM Society | [https://phmsociety.org/](https://phmsociety.org/) |
-| Kaggle 数据集搜索 | [https://www.kaggle.com/datasets](https://www.kaggle.com/datasets) |
-| 中国知网 | [https://www.cnki.net/](https://www.cnki.net/) |
-| arXiv | [https://arxiv.org/](https://arxiv.org/) |
-| Google Scholar | [https://scholar.google.com/](https://scholar.google.com/) |
+| 《"AI+制造"专项行动》原文 | [gxt.hunan.gov.cn](https://gxt.hunan.gov.cn/gxt/xxgk_71033/zcfg/gjjfg/202601/t20260108_33888883.html) |
+| 《机械工业数字化转型实施方案》原文 | [www.gov.cn](https://www.gov.cn/zhengce/zhengceku/202508/content_7035233.htm) |
+| GB/T 46315-2025 国标全文 | [openstd.samr.gov.cn](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6CCB2A90CAD274D18ED4ED6864414275) |
+| MarketIntelo AI 水泵预测性维护报告 | [marketintelo.com](https://marketintelo.com/report/ai-based-pump-predictive-maintenance-market) |
+| NIST AMS 100-34 维护成本研究 PDF | [nvlpubs.nist.gov](https://nvlpubs.nist.gov/nistpubs/ams/NIST.AMS.100-34.pdf) |
+| 利欧股份 2025 年年报全文 | [cnfin.com](https://www.cnfin.com/announ/detail/index.html?id=830721944151&code=002131) |
+| PumpSpectra MCSA 论文 (MDPI Sensors) | [mdpi.com](https://www.mdpi.com/1424-8220/25/22/6916) |
+| 离心泵 PHM 综述 (MDPI Actuators) | [mdpi.com](https://www.mdpi.com/2076-0825/13/12/514) |
+| NASA IMS 轴承数据集 (Kaggle) | [kaggle.com](https://www.kaggle.com/datasets/vinayak123tyagi/bearing-dataset) |
+| 泵数字孪生仿真数据集 (Kaggle) | [kaggle.com](https://www.kaggle.com/datasets/ishanpradhan95/industrial-pump-physics-grounded-digital-twin) |
+| PHM Society 竞赛页面 | [phmsociety.org](https://phmsociety.org/data-challenge/) |
+| 中国通用机械工业协会 | [cgmia.org.cn](https://www.cgmia.org.cn/) |
+| 巨潮资讯网（利欧公告） | [cninfo.com.cn](https://www.cninfo.com.cn/) |
