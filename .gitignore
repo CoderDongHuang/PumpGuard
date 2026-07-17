@@ -1,0 +1,58 @@
+# ===== 密钥 & 环境变量 =====
+.env
+*.pem
+*.key
+credentials.*
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+.eggs/
+
+# ===== Node.js =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vite/
+
+# ===== Java =====
+target/
+*.class
+*.jar
+*.war
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# ===== IDE & OS =====
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== 仿真输出 =====
+simulation-engine/output/
+simulation-engine/*.jsonl
+
+# ===== 模型文件 =====
+ai-engine/models_store/*.pkl
+ai-engine/models_store/*.pt
+ai-engine/models_store/*.onnx
+ai-engine/models_store/feedback.jsonl
+
+# ===== Docker =====
+docker-volumes/
+
+# ===== 日志 =====
+*.log
+logs/
