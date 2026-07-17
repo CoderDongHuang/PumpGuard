@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: pumpguard-business-server
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pumpguard
+    username: pumpguard
+    password: pumpguard123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: pumpguard-business
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# InfluxDB
+influxdb:
+  url: http://localhost:8086
+  token: pumpguard-token-dev
+  org: pumpguard
+  bucket: pump_metrics
+
+# AI Engine (Python FastAPI)
+ai-engine:
+  url: http://localhost:8000
+
+# MQTT (EMQX)
+mqtt:
+  broker-url: tcp://localhost:1883
+  client-id: pumpguard-business-server
+  topics:
+    sensor: pump/+/sensor
+    processed: pump/+/processed
+
+# 飞书
+feishu:
+  app-id: ${FEISHU_APP_ID:}
+  app-secret: ${FEISHU_APP_SECRET:}
+  bot-webhook: ${FEISHU_BOT_WEBHOOK:}
+
+logging:
+  level:
+    com.pumpguard: DEBUG
+    org.springframework.kafka: INFO
