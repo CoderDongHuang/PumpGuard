@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利欧泵业 AI 智慧预测与健康管理系统架构</title>
+<style>
+  :root {
+    --surface: #fcfcfb;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --gridline: #e1e0d9;
+    --baseline: #c3c2b7;
+
+    --layer-data: #2a78d6;
+    --layer-algo: #4a3aa7;
+    --layer-decision: #eb6834;
+    --layer-present: #008300;
+    --feedback: #d55181;
+
+    --layer-data-bg: #f2f7fd;
+    --layer-algo-bg: #f5f3fb;
+    --layer-decision-bg: #fef7f3;
+    --layer-present-bg: #f2f8f2;
+    --feedback-bg: #fdf5f7;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #1a1a19;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --gridline: #2c2c2a;
+      --baseline: #383835;
+
+      --layer-data: #3987e5;
+      --layer-algo: #9085e9;
+      --layer-decision: #d95926;
+      --layer-present: #008300;
+      --feedback: #d55181;
+
+      --layer-data-bg: #1c2229;
+      --layer-algo-bg: #201f2a;
+      --layer-decision-bg: #29211c;
+      --layer-present-bg: #1a241a;
+      --feedback-bg: #291f23;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--surface);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 24px;
+  }
+
+  .diagram-wrapper {
+    max-width: 1400px;
+    width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Tooltip / info */
+  .subtitle {
+    text-align: center;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="diagram-wrapper">
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- ===== Defs ===== -->
+  <defs>
+    <!-- Arrowhead marker for forward data flow -->
+    <marker id="arrowForward" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 L2,4 Z" fill="#898781"/>
+    </marker>
+    <!-- Arrowhead marker for feedback flow -->
+    <marker id="arrowFeedback" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 L2,4 Z" fill="#d55181"/>
+    </marker>
+    <!-- Small dot marker -->
+    <marker id="dotFeedback" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <circle cx="3" cy="3" r="2.5" fill="#d55181"/>
+    </marker>
+  </defs>
+
+  <!-- ===== Background ===== -->
+  <rect width="1400" height="720" fill="var(--surface)" />
+
+  <!-- ===== Title ===== -->
+  <text x="700" y="36" text-anchor="middle" font-size="22" font-weight="700"
+        fill="var(--text-primary)" font-family="system-ui, -apple-system, sans-serif">
+    利欧泵业 AI 智慧预测与健康管理（PHM）系统架构
+  </text>
+
+  <!-- ============================================================ -->
+  <!-- LAYER 1: 数据接入层 -->
+  <!-- ============================================================ -->
+
+  <!-- Layer container -->
+  <rect x="30" y="60" width="300" height="298" rx="10"
+        fill="var(--layer-data-bg)" stroke="var(--layer-data)" stroke-width="2"/>
+
+  <!-- Layer header -->
+  <rect x="30" y="60" width="300" height="42" rx="10"
+        fill="var(--layer-data)" />
+  <rect x="30" y="92" width="300" height="10" fill="var(--layer-data)" /> <!-- cover bottom rounded corners -->
+  <text x="180" y="87" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#ffffff" font-family="system-ui, -apple-system, sans-serif">数据接入层</text>
+
+  <!-- Sub-box 1 -->
+  <rect x="46" y="116" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="46" y="116" width="4" height="52" rx="2" fill="var(--layer-data)"/>
+  <text x="60" y="138" font-size="13" font-weight="600" fill="var(--text-primary)">新泵 / 智能泵</text>
+  <text x="60" y="156" font-size="11" fill="var(--text-secondary)">原生传感器直采 · MQTT 上云</text>
+
+  <!-- Sub-box 2 -->
+  <rect x="46" y="176" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="46" y="176" width="4" height="52" rx="2" fill="var(--layer-data)"/>
+  <text x="60" y="198" font-size="13" font-weight="600" fill="var(--text-primary)">老旧泵（有变频器）</text>
+  <text x="60" y="216" font-size="11" fill="var(--text-secondary)">接入变频器数据 · 边缘网关转发</text>
+
+  <!-- Sub-box 3 -->
+  <rect x="46" y="236" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="46" y="236" width="4" height="52" rx="2" fill="var(--layer-data)"/>
+  <text x="60" y="258" font-size="13" font-weight="600" fill="var(--text-primary)">老旧泵（无变频器）</text>
+  <text x="60" y="276" font-size="11" fill="var(--text-secondary)">外挂传感器 + MCSA 电流特征分析</text>
+
+  <!-- Layer footer tag -->
+  <rect x="112" y="300" width="136" height="22" rx="11" fill="var(--layer-data)" opacity="0.15"/>
+  <text x="180" y="315" text-anchor="middle" font-size="10" fill="var(--layer-data)" font-weight="500">MQTT · 边缘网关 · 协议转换</text>
+
+  <!-- ============================================================ -->
+  <!-- Forward Arrow 1 → 2 -->
+  <!-- ============================================================ -->
+  <line x1="330" y1="209" x2="376" y2="209" stroke="#898781" stroke-width="2"
+        marker-end="url(#arrowForward)"/>
+  <text x="353" y="202" text-anchor="middle" font-size="10" fill="var(--text-muted)">数据流</text>
+
+  <!-- ============================================================ -->
+  <!-- LAYER 2: 算法层 -->
+  <!-- ============================================================ -->
+
+  <!-- Layer container -->
+  <rect x="386" y="60" width="300" height="368" rx="10"
+        fill="var(--layer-algo-bg)" stroke="var(--layer-algo)" stroke-width="2"/>
+
+  <!-- Layer header -->
+  <rect x="386" y="60" width="300" height="42" rx="10"
+        fill="var(--layer-algo)" />
+  <rect x="386" y="92" width="300" height="10" fill="var(--layer-algo)" />
+  <text x="536" y="87" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#ffffff" font-family="system-ui, -apple-system, sans-serif">算法层</text>
+
+  <!-- Badge -->
+  <rect x="586" y="72" width="90" height="18" rx="9" fill="rgba(255,255,255,0.2)"/>
+  <text x="631" y="85" text-anchor="middle" font-size="9" fill="#ffffff" font-weight="500">机理 + 数据融合</text>
+
+  <!-- Sub-box 1: HI -->
+  <rect x="402" y="116" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="402" y="116" width="4" height="52" rx="2" fill="var(--layer-algo)"/>
+  <text x="416" y="138" font-size="13" font-weight="600" fill="var(--text-primary)">健康指数 HI 计算</text>
+  <text x="416" y="156" font-size="11" fill="var(--text-secondary)">Q-H-η 曲线基线 · 振动/效率/温升融合</text>
+
+  <!-- Sub-box 2: 故障预测 -->
+  <rect x="402" y="176" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="402" y="176" width="4" height="52" rx="2" fill="var(--layer-algo)"/>
+  <text x="416" y="198" font-size="13" font-weight="600" fill="var(--text-primary)">故障预测</text>
+  <text x="416" y="216" font-size="11" fill="var(--text-secondary)">LSTM / Transformer · 机理规则联合判定</text>
+
+  <!-- Sub-box 3: RUL -->
+  <rect x="402" y="236" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="402" y="236" width="4" height="52" rx="2" fill="var(--layer-algo)"/>
+  <text x="416" y="258" font-size="13" font-weight="600" fill="var(--text-primary)">剩余寿命预测 RUL</text>
+  <text x="416" y="276" font-size="11" fill="var(--text-secondary)">HI 退化趋势外推 · 同型号相似性匹配</text>
+
+  <!-- Sub-box 4: 根因分析 -->
+  <rect x="402" y="296" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="402" y="296" width="4" height="52" rx="2" fill="var(--layer-algo)"/>
+  <text x="416" y="318" font-size="13" font-weight="600" fill="var(--text-primary)">根因分析</text>
+  <text x="416" y="336" font-size="11" fill="var(--text-secondary)">故障特征库 + 因果推理 → 建议处置方案</text>
+
+  <!-- Layer footer tag -->
+  <rect x="480" y="364" width="112" height="22" rx="11" fill="var(--layer-algo)" opacity="0.15"/>
+  <text x="536" y="379" text-anchor="middle" font-size="10" fill="var(--layer-algo)" font-weight="500">零样本可用 · 可解释</text>
+
+  <!-- ============================================================ -->
+  <!-- Forward Arrow 2 → 3 -->
+  <!-- ============================================================ -->
+  <line x1="686" y1="209" x2="732" y2="209" stroke="#898781" stroke-width="2"
+        marker-end="url(#arrowForward)"/>
+  <text x="709" y="202" text-anchor="middle" font-size="10" fill="var(--text-muted)">预警事件</text>
+
+  <!-- ============================================================ -->
+  <!-- LAYER 3: 决策层 -->
+  <!-- ============================================================ -->
+
+  <!-- Layer container -->
+  <rect x="742" y="60" width="300" height="298" rx="10"
+        fill="var(--layer-decision-bg)" stroke="var(--layer-decision)" stroke-width="2"/>
+
+  <!-- Layer header -->
+  <rect x="742" y="60" width="300" height="42" rx="10"
+        fill="var(--layer-decision)" />
+  <rect x="742" y="92" width="300" height="10" fill="var(--layer-decision)" />
+  <text x="892" y="87" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#ffffff" font-family="system-ui, -apple-system, sans-serif">决策层</text>
+
+  <!-- Sub-box 1 -->
+  <rect x="758" y="116" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="758" y="116" width="4" height="52" rx="2" fill="var(--layer-decision)"/>
+  <text x="772" y="138" font-size="13" font-weight="600" fill="var(--text-primary)">工单自动生成与路由</text>
+  <text x="772" y="156" font-size="11" fill="var(--text-secondary)">紧急程度评估 · 技能/距离/负载匹配</text>
+
+  <!-- Sub-box 2 -->
+  <rect x="758" y="176" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="758" y="176" width="4" height="52" rx="2" fill="var(--layer-decision)"/>
+  <text x="772" y="198" font-size="13" font-weight="600" fill="var(--text-primary)">备件库存优化</text>
+  <text x="772" y="216" font-size="11" fill="var(--text-secondary)">RUL 驱动需求预测 · 全球库存分布</text>
+
+  <!-- Sub-box 3 -->
+  <rect x="758" y="236" width="268" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="758" y="236" width="4" height="52" rx="2" fill="var(--layer-decision)"/>
+  <text x="772" y="258" font-size="13" font-weight="600" fill="var(--text-primary)">全球服务网络调度</text>
+  <text x="772" y="276" font-size="11" fill="var(--text-secondary)">150+ 国家就近派单 · 路径与技能优化</text>
+
+  <!-- Layer footer tag -->
+  <rect x="824" y="300" width="136" height="22" rx="11" fill="var(--layer-decision)" opacity="0.15"/>
+  <text x="892" y="315" text-anchor="middle" font-size="10" fill="var(--layer-decision)" font-weight="500">工单 · 备件 · 调度</text>
+
+  <!-- ============================================================ -->
+  <!-- Forward Arrow 3 → 4 -->
+  <!-- ============================================================ -->
+  <line x1="1042" y1="209" x2="1088" y2="209" stroke="#898781" stroke-width="2"
+        marker-end="url(#arrowForward)"/>
+  <text x="1065" y="202" text-anchor="middle" font-size="10" fill="var(--text-muted)">运维指令</text>
+
+  <!-- ============================================================ -->
+  <!-- LAYER 4: 展示层 -->
+  <!-- ============================================================ -->
+
+  <!-- Layer container -->
+  <rect x="1098" y="60" width="272" height="298" rx="10"
+        fill="var(--layer-present-bg)" stroke="var(--layer-present)" stroke-width="2"/>
+
+  <!-- Layer header -->
+  <rect x="1098" y="60" width="272" height="42" rx="10"
+        fill="var(--layer-present)" />
+  <rect x="1098" y="92" width="272" height="10" fill="var(--layer-present)" />
+  <text x="1234" y="87" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#ffffff" font-family="system-ui, -apple-system, sans-serif">展示层</text>
+
+  <!-- Sub-box 1 -->
+  <rect x="1114" y="116" width="240" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="1114" y="116" width="4" height="52" rx="2" fill="var(--layer-present)"/>
+  <text x="1128" y="138" font-size="13" font-weight="600" fill="var(--text-primary)">数字孪生看板</text>
+  <text x="1128" y="156" font-size="11" fill="var(--text-secondary)">全球一张图 · 全生命周期档案</text>
+
+  <!-- Sub-box 2 -->
+  <rect x="1114" y="176" width="240" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="1114" y="176" width="4" height="52" rx="2" fill="var(--layer-present)"/>
+  <text x="1128" y="198" font-size="13" font-weight="600" fill="var(--text-primary)">飞书 Bot 告警</text>
+  <text x="1128" y="216" font-size="11" fill="var(--text-secondary)">实时推送 · AI 智能问答 · 运维报告</text>
+
+  <!-- Sub-box 3 -->
+  <rect x="1114" y="236" width="240" height="52" rx="6"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+  <rect x="1114" y="236" width="4" height="52" rx="2" fill="var(--layer-present)"/>
+  <text x="1128" y="258" font-size="13" font-weight="600" fill="var(--text-primary)">移动端巡检助手</text>
+  <text x="1128" y="276" font-size="11" fill="var(--text-secondary)">现场巡检 · 维修反馈录入</text>
+
+  <!-- Layer footer tag -->
+  <rect x="1166" y="300" width="136" height="22" rx="11" fill="var(--layer-present)" opacity="0.15"/>
+  <text x="1234" y="315" text-anchor="middle" font-size="10" fill="var(--layer-present)" font-weight="500">看板 · Bot · 移动端</text>
+
+  <!-- ============================================================ -->
+  <!-- FEEDBACK LOOP (闭环) — Decision → Algorithm -->
+  <!-- ============================================================ -->
+
+  <!-- Feedback path: U-shaped, from Decision bottom back to Algorithm bottom -->
+  <!-- Drops well below the layer boxes to avoid crowding -->
+  <path d="M 892 358
+           L 892 478
+           Q 892 488, 882 488
+           L 546 488
+           Q 536 488, 536 478
+           L 536 428"
+        fill="none" stroke="#d55181" stroke-width="2.5"
+        stroke-dasharray="8,4"
+        marker-end="url(#arrowFeedback)"
+        stroke-linecap="round"/>
+
+  <!-- Feedback label -->
+  <rect x="612" y="498" width="200" height="32" rx="6"
+        fill="var(--feedback-bg)" stroke="#d55181" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="712" y="512" text-anchor="middle" font-size="11" font-weight="700"
+        fill="#d55181" font-family="system-ui, -apple-system, sans-serif">维修反馈闭环</text>
+  <text x="712" y="525" text-anchor="middle" font-size="10" fill="var(--text-muted)">工程师确认 → 标记AI诊断 → 模型进化</text>
+
+  <!-- Small annotation arrow connecting label to path -->
+  <line x1="712" y1="498" x2="712" y2="490" stroke="#d55181" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM ANNOTATION: Edge / Infrastructure context -->
+  <!-- ============================================================ -->
+
+  <rect x="30" y="560" width="1340" height="52" rx="8"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+
+  <text x="700" y="580" text-anchor="middle" font-size="11" font-weight="600"
+        fill="var(--text-secondary)" font-family="system-ui, -apple-system, sans-serif">
+    边缘层
+  </text>
+  <text x="700" y="600" text-anchor="middle" font-size="11"
+        fill="var(--text-muted)" font-family="system-ui, -apple-system, sans-serif">
+    传感器 / MQTT Broker / 边缘网关 / 协议转换 / 特征提取
+  </text>
+
+  <!-- Tech stack line -->
+  <rect x="30" y="632" width="1340" height="44" rx="8"
+        fill="var(--surface)" stroke="var(--gridline)" stroke-width="1"/>
+
+  <text x="700" y="652" text-anchor="middle" font-size="11" font-weight="600"
+        fill="var(--text-secondary)" font-family="system-ui, -apple-system, sans-serif">
+    数据与基础设施
+  </text>
+  <text x="700" y="668" text-anchor="middle" font-size="11"
+        fill="var(--text-muted)" font-family="system-ui, -apple-system, sans-serif">
+    时序数据库 InfluxDB &nbsp;|&nbsp; PostgreSQL &nbsp;|&nbsp; 消息队列 Kafka &nbsp;|&nbsp;
+    Java Spring Boot（业务主脑）&nbsp;|&nbsp; Python FastAPI（AI 引擎）
+  </text>
+
+  <!-- ============================================================ -->
+  <!-- LEGEND -->
+  <!-- ============================================================ -->
+  <g transform="translate(30, 696)">
+    <line x1="0" y1="12" x2="30" y2="12" stroke="#898781" stroke-width="2"
+          marker-end="url(#arrowForward)"/>
+    <text x="36" y="16" font-size="10" fill="var(--text-muted)">数据/指令流</text>
+
+    <line x1="130" y1="12" x2="160" y2="12" stroke="#d55181" stroke-width="2.5"
+          stroke-dasharray="6,3"/>
+    <text x="166" y="16" font-size="10" fill="var(--text-muted)">反馈闭环</text>
+  </g>
+
+</svg>
+</div>
+</body>
+</html>
