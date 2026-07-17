@@ -1,0 +1,85 @@
+# PumpGuard 仿真引擎配置
+
+simulation:
+  num_pumps: 150            # 仿真泵数量
+  duration_days: 365        # 仿真时长（天）
+  sample_interval_sec: 60   # 采样间隔（秒）
+  seed: 42                  # 随机种子
+
+mqtt:
+  host: localhost
+  port: 1883
+  topic_prefix: pump        # 发布 Topic: pump/{device_id}/sensor
+
+pump_types:
+  - name: centrifugal_small
+    description: 小型离心泵（民用供水）
+    rated_flow: 50          # m³/h
+    rated_head: 30          # m
+    rated_efficiency: 0.75
+    rated_power: 5.5        # kW
+    rated_speed: 2900       # RPM
+    count: 80
+
+  - name: centrifugal_large
+    description: 大型离心泵（工业冷却）
+    rated_flow: 500
+    rated_head: 60
+    rated_efficiency: 0.82
+    rated_power: 110
+    rated_speed: 1480
+    count: 40
+
+  - name: axial_flow
+    description: 轴流泵（市政排水）
+    rated_flow: 2000
+    rated_head: 8
+    rated_efficiency: 0.85
+    rated_power: 55
+    rated_speed: 980
+    count: 20
+
+  - name: mixed_flow
+    description: 混流泵（农业灌溉）
+    rated_flow: 300
+    rated_head: 20
+    rated_efficiency: 0.80
+    rated_power: 22
+    rated_speed: 1450
+    count: 10
+
+fault_scenarios:
+  - type: bearing_inner_race_wear
+    probability: 0.05       # 5% 的泵注入此故障
+    onset_day_min: 100      # 故障最早在第 100 天开始
+    onset_day_max: 250
+    severity_range: [0.3, 0.8]
+
+  - type: impeller_cavitation
+    probability: 0.03
+    onset_day_min: 150
+    onset_day_max: 300
+    severity_range: [0.2, 0.7]
+
+  - type: misalignment
+    probability: 0.04
+    onset_day_min: 80
+    onset_day_max: 280
+    severity_range: [0.2, 0.6]
+
+  - type: seal_leakage
+    probability: 0.03
+    onset_day_min: 200
+    onset_day_max: 350
+    severity_range: [0.3, 0.9]
+
+  - type: motor_electrical_fault
+    probability: 0.02
+    onset_day_min: 180
+    onset_day_max: 320
+    severity_range: [0.4, 0.9]
+
+output:
+  format: jsonl             # JSON Lines 格式
+  directory: ./output
+  compress: false
